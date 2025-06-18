@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>KeepYourScore online</title>
+
+	<link rel="stylesheet" type="text/css" href="style/basic_light.css">
+	<link rel="icon" type="image/x-icon" href="static/favicon.ico">
+
+	<script type="text/javascript" src="script/onload.js"></script>
+	<script type="text/javascript" src="script/index.js"></script>
+</head>
+
+<body class="js-on-load" onload="onPageLoad()">
+
+	<div class="container-header" div-state="is-hidden">
+		<div class="hc-nav">
+			<div class="hc-nav__theme">
+				<button class="hc-nav__btn-theme btn--shape1" btn-state="is-disabled"></button>
+			</div>
+			<div class="hc-nav__burger">
+				
+			</div>
+			<div class="hc-nav__language">
+				<button class="hc-nav__btn-lang hc-nav__lang--de" btn-state="is-disabled"></button>
+				<button class="hc-nav__btn-lang hc-nav__lang--en" btn-state="is-disabled"></button>
+			</div>
+		</div>
+		<div class="hc-logo">
+			<div class="hc-logo__icon">
+					
+			</div>
+			<div class="hc-logo__caption">
+				
+			</div>
+		</div>
+	</div>
+
+	<div class="container-body">
+
+		<div class="body-upper-part">
+			<div class="bc-nav">
+				<!--<div div-state="is-hidden">-->
+				<div class="bc-nav__theme"> <!--Rename to layout, children are theme and mode (dark mode/light mode)-->
+					<button class="btn--standard bc-nav__btn-theme btn--shape1" i18n-id="nav-theme__button" btn-state="is-disabled"></button>
+				</div>
+				<div class="bc-nav__burger">
+					<button class="bc-nav__btn-burger" btn-state="is-disabled">&equiv;</button>
+				</div>
+				<div class="bc-nav__language">
+					<button class="bc-nav__btn-lang bc-nav__lang--de" btn-state="is-disabled"></button>
+					<button class="bc-nav__btn-lang bc-nav__lang--en" btn-state="is-disabled"></button>
+					<div id="js-div-pageLanguage" div-state="is-hidden"></div>
+				</div>
+				<!--</div>-->
+			</div>
+			<div class="bc-logo">
+				<div class="bc-logo__icon"></div>
+				<div class="bc-logo__caption" i18n-id="logo__caption"></div>
+			</div>
+			<div class="bc-menu">
+				<div class="u-height--100px"></div>
+				<button class="btn--standard bc-menu__btn-new-game btn--shape1" id="js-btn-newGame" i18n-id="new-game__button" btn-state="is-disabled"></button>
+				<div class="u-height--100px"></div>
+			</div>
+		</div>
+
+		<hr class="hr-like">
+
+		<div class="body-lower-part">
+			<div class="bc-tutorial">
+				<div class="bc-tutorial--center" i18n-id="tutorial-step1__headline"></div>
+				<div class="bc-tutorial--split">
+					<div class="bc-tutorial__icon">
+						<img class="bc-tutorial__icon-step1">
+					</div>
+					<div class="bc-tutorial__text" i18n-id="tutorial-step1__content"></div>
+				</div>
+				<div class="bc-tutorial--center">
+					<button class="btn--standard bc-tutorial__btn-check-settings btn--shape1" id="js-btn-checkWebStorage" i18n-id="tutorial-step1__button" btn-state="is-disabled"></button>
+				</div>
+			</div>
+			<div class="bc-tutorial">
+				<div class="bc-tutorial--center" i18n-id="tutorial-step2__headline"></div>
+				<div class="bc-tutorial--split">
+					<div class="bc-tutorial__icon">
+						<img class="bc-tutorial__icon-step2">
+					</div>
+					<div class="bc-tutorial__text" i18n-id="tutorial-step2__content"></div>
+				</div>
+			</div>
+			<div class="bc-tutorial">
+				<div class="bc-tutorial--center" i18n-id="tutorial-step3__headline"></div>
+				<div class="bc-tutorial--split">
+					<div class="bc-tutorial__icon">
+						<img class="bc-tutorial__icon-step3">
+					</div>
+					<div class="bc-tutorial__text" i18n-id="tutorial-step3__content"></div>
+				</div>
+			</div>
+			<div class="bc-tutorial">
+				<div class="bc-tutorial--center" i18n-id="tutorial-step4__headline"></div>
+				<div class="bc-tutorial--split">
+					<div class="bc-tutorial__icon">
+						<img class="bc-tutorial__icon-step4">
+					</div>
+					<div class="bc-tutorial__text" i18n-id="tutorial-step4__content"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr class="hr-like">
+
+	<div class="container-footer">
+		<div class="fc-cards">
+			<div class="fc-cards__card fc-card--shape1">
+				<h2 class="h2-like" i18n-id="card-details__headline"></h2>
+				<div i18n-id="card-details__content"></div>
+				<button class="fc-cards__btn-follow fc-cards__follow--google" btn-state="is-disabled"></button>
+				<button class="fc-cards__btn-follow fc-cards__follow--github" btn-state="is-disabled"></button>
+			</div>
+			<div class="fc-cards__card fc-card--shape1">
+				<h4 class="h4-like" i18n-id="card-about__headline"></h4>
+				<p class="p-like u-font-size--12px" i18n-id="card-about__content"></p>
+			</div>
+			<div class="fc-cards__card fc-card--shape3">
+				<h4 class="h4-like" i18n-id="card-news__headline"></h4>
+				<p class="p-like u-font-size--12px" i18n-id="card-news__content"></p>
+			</div>
+		</div>
+		<div class="fc-logo">
+			
+		</div>
+	</div>
+
+
+	<div class="container-modal">
+		<div class="mc-card" id="js-div-modalContainer">
+			<!--
+			https://www.w3schools.com/howto/howto_css_modals.asp
+			https://www.cssscript.com/simple-responsive-css-modal-dialog/
+			https://bulma.io/documentation/components/modal/
+			https://www.codingnepalweb.com/custom-modal-box-using-javascript/
+			-->
+			<div class="mc-card__card-small" id="js-div-modalSmall">
+				<div class="mc-card-small__body" id="js-div-modalSmallContent" i18n-id="modal-small__content"></div>
+				<button class="mc-card-small__btn-close-modal" id="js-btn-closeModalSmall">&#10008;</button>
+			</div>
+			<div class="mc-card__card-medium" id="js-div-modalMedium">
+				<div class="mc-card-medium__header">
+					<div class="mc-card-medium__title">Title</div>
+					<button class="mc-card-medium__btn-close-modal" id="js-btn-closeModalMedium">&#10008;</button>
+				</div>
+				<hr class="hr-like">
+				<div class="mc-card-medium__body">Content</div>
+				<hr class="hr-like">
+				<div class="mc-card-medium__footer">
+					<button class="mc-buttons__btn-confirm">OK</button>
+				</div>
+			</div>
+			<div class="mc-card__card-large" id="js-div-modalLarge">
+				<div class="mc-card-large__header">
+					<div class="mc-card-large__title"></div>
+					<button class="mc-card-large__btn-close-modal" id="js-btn-closeModalLarge">&#10008;</button>
+					<img class="mc-card-large__icon">
+				</div>
+				<hr class="hr-like">
+				<div class="mc-card-large__body"></div>
+				<hr class="hr-like">
+				<div class="mc-card-large__footer">
+					<button class="mc-buttons__btn-confirm"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
