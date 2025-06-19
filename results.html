@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>SCO</title>
+
+	<link rel="stylesheet" type="text/css" href="style/basic_light.css">
+
+	<script type="text/javascript" src="script/onload.js"></script>
+	<script type="text/javascript" src="script/results.js"></script>
+</head>
+
+<body class="js-on-load" onload="onPageLoad()">
+
+	<div class="container-body">
+		<div class="body-main-part">
+			<div class="bc-nav">
+				<!--<div div-state="is-hidden">-->
+				<div class="bc-nav__theme">
+					<button class="btn--standard bc-nav__btn-theme btn--shape1" i18n-id="nav-theme__button" btn-state="is-disabled"></button>
+				</div>
+				<div class="bc-nav__burger">
+					_
+				</div>
+				<div class="bc-nav__language">
+					<button class="bc-nav__btn-lang bc-nav__lang--de" btn-state="is-disabled"></button>
+					<button class="bc-nav__btn-lang bc-nav__lang--en" btn-state="is-disabled"></button>
+					<div id="js-div-pageLanguage" div-state="is-hidden"></div>
+				</div>
+				<!--</div>-->
+			</div>
+			<div class="bc-logo">
+				<div class="bc-logo__icon--small"></div>
+			</div>
+			<div class="u-height--40px"></div>
+			<div class="bc-results">
+				<div class="bc-results__podium">
+					<div class="bc-results__podium-podest">
+						<div class="bc-podest__second-place">
+							<div class="bc-podest__second--name" id="js-div-podestSecond"></div>
+							<div class="bc-podest__second--body"><b>2</b></div>
+						</div>
+						<div class="bc-podest__first-place">
+							<div class="bc-podest__first--name" id="js-div-podestFirst"></div>
+							<div class="bc-podest__first--body"><b>1</b></div>
+						</div>
+						<div class="bc-podest__third-place">
+							<div class="bc-podest__third--name" id="js-div-podestThird"></div>
+							<div class="bc-podest__third--body"><b>3</b></div>
+						</div>
+					</div>
+					<div class="bc-results__podium-base"></div>
+				</div>
+				<table class="bc-results__table" id="js-div-resultTable">
+					<!--
+					<thead>
+						<tr>
+							<th>Rank</th>
+							<th>Name</th>
+							<th>Score</th>	
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1.</td>
+							<td>Lisi</td>
+							<td>34</td>	
+						</tr>
+						<tr>
+							<td>2.</td>
+							<td>Chrisi</td>
+							<td>12</td>	
+						</tr>
+						<tr>
+							<td>3.</td>
+							<td>Tobi<br>Vale</td>
+							<td>11</td>	
+						</tr>
+					</tbody>
+					-->
+				</table>
+			</div>
+			<div class="u-height--80px"></div>
+			<div class="bc-buttons--2col">
+				<button class="btn--standard bc-buttons__btn-leaderboard btn--shape1" id="js-btn-statistics" i18n-id="statistics__button" btn-state="is-disabled"></button>
+				<button class="btn--standard bc-buttons__btn-statistics btn--shape1" id="js-btn-rematch" i18n-id="rematch__button" btn-state="is-disabled"></button>
+			</div>
+			<div class="bc-buttons--2col">
+				<button class="btn--standard bc-buttons__btn-rematch btn--shape1" id="js-btn-mainMenu" i18n-id="main-menu__button" btn-state="is-disabled"></button>
+				<button class="btn--standard bc-buttons__btn-main-menu btn--shape1" btn-state="is-disabled"></button>
+			</div>
+			<div class="u-height--40px"></div>
+		</div>
+	</div>
+
+</body>
+</html>
