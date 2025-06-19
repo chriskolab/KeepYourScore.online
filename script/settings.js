@@ -204,7 +204,6 @@ function startGame() {
       localStorage.removeItem(key);
    }
 
-
    //Set game mode
    switch (true) {
    case (inputConda1.value == "1" && inputConda2.value < inputCond11.value && inputConda3.value == "0" && inputCond12.checked == true):
@@ -244,7 +243,6 @@ function startGame() {
       break;
    }
 
-
    //Get and concatenate player names separated by comma
    var numPlayers = players.length;
    var playerNames = "";         //Initial values
@@ -258,10 +256,6 @@ function startGame() {
    }
 
    playerNames = playerNames.slice(0,-1);       //Remove last comma from string
-
-   console.log(playerNames)
-   console.log(numPlayers)
-
 
    //Set starting points and game round from each player
    var playerPoints = "";
@@ -280,12 +274,7 @@ function startGame() {
    playerPoints = playerPoints.slice(0,-1);        //Remove last comma from string
    playerRounds = playerRounds.slice(0,-1);        //Remove last comma from string
 
-   console.log(playerPoints)
-   console.log(playerRounds)
-
-
    //Store game items in web storage
-   /*
    localStorage.setItem("KeepYourScore?gamestat-status", "1");
    localStorage.setItem("KeepYourScore?gamestat-mode", gameMode);
    localStorage.setItem("KeepYourScore?gamestat-gameround", "1");
@@ -296,9 +285,8 @@ function startGame() {
    localStorage.setItem("KeepYourScore?playerstat-names", playerNames);
    localStorage.setItem("KeepYourScore?playerstat-points", playerPoints);
    localStorage.setItem("KeepYourScore?playerstat-rounds", playerRounds);
-   */
 
-
-   console.log("startGame()")
+   //Start game
+   window.location = "./game";
    
 }
