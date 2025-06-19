@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>KeepYourScore online</title>
+
+	<link rel="stylesheet" type="text/css" href="style/basic_light.css">
+	<link rel="icon" type="image/x-icon" href="static/favicon.ico">
+
+	<script type="text/javascript" src="script/onload.js"></script>
+	<script type="text/javascript" src="script/gamecond.js"></script>
+
+</head>
+
+<body class="js-on-load" onload="onPageLoad()">
+
+	<div class="container-body">
+		<div class="body-main-part">
+			<div class="bc-nav">
+				<!--<div div-state="is-hidden">-->
+				<div class="bc-nav__theme">
+					<button class="btn--standard bc-nav__btn-theme btn--shape1" i18n-id="nav-theme__button" btn-state="is-disabled"></button>
+				</div>
+				<div class="bc-nav__burger">
+					<button class="bc-nav__btn-burger" btn-state="is-disabled">&equiv;</button>
+				</div>
+				<div class="bc-nav__language">
+					<button class="bc-nav__btn-lang bc-nav__lang--de" btn-state="is-disabled"></button>
+					<button class="bc-nav__btn-lang bc-nav__lang--en" btn-state="is-disabled"></button>
+					<div id="js-div-pageLanguage" div-state="is-hidden"></div>
+				</div>
+				<!--</div>-->
+			</div>
+			<div class="bc-logo">
+				<div class="bc-logo__icon--small"></div>
+			</div>
+			<div class="u-height--40px"></div>
+			<div class="bc-conditions">
+				<div class="bc-conditions--center" i18n-id="conditions__headline"></div>
+				<!--Insert tabs here for advanced settings, bc-conditions__tabs, bc-tabs__tab-->
+				<div class="bc-conditions--split">
+					<div class="bc-conditions__text" i18n-id="conditions-cond-a-2"></div>
+					<div class="bc-conditions__whitespace"></div>
+					<input type="number" pattern="[0-9]*" class="input--standard bc-conditions__input input--shape1" id="js-input-cond-a-2">
+					<div class="bc-conditions__text" i18n-id="conditions-cond-1-1"></div>
+					<div class="bc-conditions__whitespace"></div>
+					<input type="number" pattern="[0-9]*" class="input--standard bc-conditions__input input--shape1" id="js-input-cond-1-1">
+					<div class="bc-conditions__text" i18n-id="conditions-cond-a-3"></div>
+					<div class="bc-conditions__whitespace"></div>
+					<select class="input--standard bc-conditions__input input--shape1" id="js-input-cond-a-3">
+						<option value="-100" selected disabled hidden></option>
+						<option value="0" i18n-id="conditions-cond-a-3-option-1"></option>
+						<option value="2" i18n-id="conditions-cond-a-3-option-2"></option>
+					</select>
+					<div class="bc-conditions__text" i18n-id="conditions-cond-1-2"></div>
+					<div class="bc-conditions__whitespace"></div>
+					<input type="checkbox" class="bc-conditions__input" id="js-input-cond-1-2">
+				</div>
+			</div>
+			<div class="u-height--40px"></div>
+			<div class="bc-players">
+				<div class="bc-players--center" i18n-id="players__headline"></div>
+				<!--Insert tabs here for teams, bc-players__tabs, bc-tabs__tab-->
+				<div class="bc-players--split bc-players__tbl-header">
+					<div class="bc-players__whitespace"></div>
+					<div class="bc-players__name" i18n-id="players-tbl__headline"></div>
+					<button class="bc-players__btn-actions bc-players__actions--add" id="js-btn-addPlayers" btn-state="is-disabled"></button>
+				</div>
+				<div class="bc-players--split bc-players__tbl-content" id="js-div-playerGrid">
+					<!--
+					<div class="bc-players__whitespace"></div>
+					<input type="text" maxlength="25" class="input--standard bc-players__input input--shape1">
+					<button class="bc-players__btn-actions bc-players__actions--delete" id="js-btn-removePlayers" btn-state="is-disabled"></button>
+					<div class="bc-players__whitespace"></div>
+					<input type="text" maxlength="25" class="input--standard bc-players__input input--shape1">
+					<button class="bc-players__btn-actions bc-players__actions--delete" id="js-btn-removePlayers" btn-state="is-disabled"></button>
+					<div class="bc-players__whitespace"></div>
+					<input type="text" maxlength="25" class="input--standard bc-players__input input--shape1">
+					<button class="bc-players__btn-actions bc-players__actions--delete" id="js-btn-removePlayers" btn-state="is-disabled"></button>
+					-->
+				</div>
+			</div>
+			<div class="u-height--80px"></div>
+			<div class="bc-buttons--2col">
+				<button class="btn--standard bc-buttons__btn-abort btn--shape1" id="js-btn-mainMenu" i18n-id="main-menu__button" btn-state="is-disabled"></button>
+				<button class="btn--standard bc-buttons__btn-start-game btn--shape1" id="js-btn-startGame" i18n-id="start-game__button" btn-state="is-disabled"></button>
+			</div>
+			<div class="u-height--40px"></div>
+		</div>
+	</div>
+
+	<div class="container-modal">
+		<div class="mc-card" id="js-div-modalContainer">
+			<!--
+			https://www.w3schools.com/howto/howto_css_modals.asp
+			https://www.cssscript.com/simple-responsive-css-modal-dialog/
+			https://bulma.io/documentation/components/modal/
+			https://www.codingnepalweb.com/custom-modal-box-using-javascript/
+			-->
+			<div class="mc-card__card-small" id="js-div-modalSmall">
+				<div class="mc-card-small__body" id="js-div-modalSmallContent" i18n-id="modal-small__content"></div>
+				<!--<span class="mc-card-small__body" id="js-div-modalSmallContent" i18n-id="modal-small__content"></span>-->
+				<button class="mc-card-small__btn-close-modal" id="js-btn-closeModalSmall">&#10008;</button>
+			</div>
+			<div class="mc-card__card-medium" id="js-div-modalMedium">
+				<div class="mc-card-medium__header">
+					<div class="mc-card-medium__title">Title</div>
+					<button class="mc-card-medium__btn-close-modal" id="js-btn-closeModalMedium">&#10008;</button>
+				</div>
+				<hr class="hr-like">
+				<div class="mc-card-medium__body">Content</div>
+				<hr class="hr-like">
+				<div class="mc-card-medium__footer">
+					<button class="mc-buttons__btn-confirm">OK</button>
+				</div>
+			</div>
+			<div class="mc-card__card-large" id="js-div-modalLarge">
+				<div class="mc-card-large__header">
+					<div class="mc-card-large__title"></div>
+					<button class="mc-card-large__btn-close-modal" id="js-btn-closeModalLarge">&#10008;</button>
+					<img class="mc-card-large__icon">
+				</div>
+				<hr class="hr-like">
+				<div class="mc-card-large__body"></div>
+				<hr class="hr-like">
+				<div class="mc-card-large__footer">
+					<button class="mc-buttons__btn-confirm"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
