@@ -14,8 +14,6 @@ function onPageLoad() {
       document.getElementById("js-div-pageLanguage").innerHTML = langPreSetting;
    }
 
-
-
 	//selLanguage("en");
 
 
@@ -27,18 +25,18 @@ function onPageLoad() {
    try {
       var areaModalContainer = document.getElementById("js-div-modalContainer");
       areaModalContainer.addEventListener("click", closeModalOutside)
-      console.log("Close Modal via outside click!")
+      //console.log("Close Modal via outside click!")
    } catch(err) {
-      console.log("X - Kein Close Modal via outside click!")
+      //console.log("X - Kein Close Modal via outside click!")
    }
 
    //Close modals (small) by x
    try {
       var btnCloseModalSmall = document.getElementById("js-btn-closeModalSmall");
       btnCloseModalSmall.addEventListener("click", closeModal)
-      console.log("Close Modal (small) Button da!")
+      //console.log("Close Modal (small) Button da!")
    } catch(err) {
-      console.log("X - Kein Close Modal (small) Button!")
+      //console.log("X - Kein Close Modal (small) Button!")
    }
 
    //New game
@@ -47,27 +45,27 @@ function onPageLoad() {
       btnNewGame.addEventListener("click", function() {
          window.location = "./gamecond";
       });
-      console.log("New Game Button da!")
+      //console.log("New Game Button da!")
    } catch(err) {
-      console.log("X - Kein New Game Button!")
+      //console.log("X - Kein New Game Button!")
    }
 
    //Check browser settings for web storage API
    try {
       var btnCheckWebStorage = document.getElementById("js-btn-checkWebStorage");
       btnCheckWebStorage.addEventListener("click", checkWebStorage);
-      console.log("Check Web Storage Button da!")
+      //console.log("Check Web Storage Button da!")
    } catch(err) {
-      console.log("X - Kein Check Web Storage Button!")
+      //console.log("X - Kein Check Web Storage Button!")
    }
 
    //Add players
    try {
       var btnAddPlayers = document.getElementById("js-btn-addPlayers");
       btnAddPlayers.addEventListener("click", addPlayer);      //addPlayerInNewGame vs addPlayerInRunningGame (later)
-      console.log("Add Players Button da!")
+      //console.log("Add Players Button da!")
    } catch(err) {
-      console.log("X - Kein Add Players Button!")
+      //console.log("X - Kein Add Players Button!")
    }
 
    //Remove players
@@ -75,36 +73,38 @@ function onPageLoad() {
       //Event handler for entire player grid container (event bubbling)
       var divPlayerGrid = document.getElementById("js-div-playerGrid");
       divPlayerGrid.addEventListener("click", removePlayer);   //removePlayerInNewGame vs removePlayerInRunningGame (later)
-      console.log("Remove Players Button da!")
+      //console.log("Remove Players Button da!")
    } catch(err) {
-      console.log("X - Kein Remove Players Button!")
+      //console.log("X - Kein Remove Players Button!")
    }
 
    //Start game
    try {
       var btnStartGame = document.getElementById("js-btn-startGame");
       btnStartGame.addEventListener("click", checkGameEntries);
-      console.log("Start Game Button da!")
+      //console.log("Start Game Button da!")
    } catch(err) {
-      console.log("X - Kein Start Game Button!")
+      //console.log("X - Kein Start Game Button!")
    }
 
    //Statistics
+   /*
    try {
       var btnStatistics = document.getElementById("js-btn-statistics");
-      btnStatistics.addEventListener("click", calcFinalStanding);
-      console.log("Statistic Button da!")
+      btnStatistics.addEventListener("click", showStatistics);
+      //console.log("Statistic Button da!")
    } catch(err) {
-      console.log("X - Kein Statistics Button!")
+      //console.log("X - Kein Statistics Button!")
    }
+      */
 
-   //Rematch
+   //Next Player
    try {
-      var btnRematch = document.getElementById("js-btn-rematch");
-      btnRematch.addEventListener("click", calcFinalStanding);
-      console.log("Rematch Button da!")
+      var btnNextPlayer = document.getElementById("js-btn-nextPlayer");
+      btnNextPlayer.addEventListener("click", calcNewPlayerValues);
+      //console.log("Next Player Button da!")
    } catch(err) {
-      console.log("X - Kein Rematch Button!")
+      //console.log("X - Kein Next Player Button!")
    }
 
    //Main menu
@@ -113,19 +113,43 @@ function onPageLoad() {
       btnMainMenu.addEventListener("click", function() {
          window.location = "./";
       });
-      console.log("Main Menu Button da!")
+      //console.log("Main Menu Button da!")
    } catch(err) {
-      console.log("X - Kein Main Menu Button!")
+      //console.log("X - Kein Main Menu Button!")
    }
+
+   //End game
+   try {
+      var btnEndGame = document.getElementById("js-btn-endGame");
+      btnEndGame.addEventListener("click", function() {
+         localStorage.setItem("KeepYourScore?gamestat-status", "2");
+         window.location = "./results";
+      });
+      //console.log("Main Menu Button da!")
+   } catch(err) {
+      //console.log("X - Kein Main Menu Button!")
+   }
+
+   //Rematch
+   /*
+   try {
+      var btnRematch = document.getElementById("js-btn-rematch");
+      btnRematch.addEventListener("click", startRematch);
+      console.log("Rematch Button da!")
+   } catch(err) {
+      console.log("X - Kein Rematch Button!")
+   }
+      */
+
 
    //Run results script when gamestatus condition fulfilled
    var gameStatus = localStorage.getItem("KeepYourScore?gamestat-status");
 
    if (gameStatus == "2") {
       calcFinalStanding();
-      console.log("Auf Results Seite")
+      //console.log("Auf Results Seite")
    } else {
-      console.log("X - Nicht auf Results Seite")
+      //console.log("X - Nicht auf Results Seite")
    }
 
 }
@@ -200,9 +224,7 @@ function loadDict() {
 
    const dict = {
       "en": {
-         "nav-theme__button": "<i>soon</i>",
          "logo__caption": "Your digital scoreboard",
-         "new-game__button": "New Game",
          "tutorial-step1__headline": "Check web storage",
          "tutorial-step1__content": "This application uses <i>Web Storage API</i> to store data locally within the user's browser.\
                      It is used to transfer game data between the pages.\
@@ -244,8 +266,12 @@ function loadDict() {
          "conditions-cond-1-2": "Last game round if one player hits final points",
          "players__headline": "Players",
          "players-tbl__headline": "Name",
+         "nav-theme__button": "<i>soon</i>",
+         "new-game__button": "New Game",
          "start-game__button": "Start Game",
          "statistics__button": "<i>Statistics - soon</i>",
+         "next-player__button": "Next Player",
+         "end-game__button": "End Game",
          "rematch__button": "<i>Rematch - soon</i>",
          "main-menu__button": "Main Menu"
       },

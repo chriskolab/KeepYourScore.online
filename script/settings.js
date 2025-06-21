@@ -16,7 +16,7 @@ function addPlayer() {
    //Create button element to remove players
    var elementButton = document.createElement("button");
    elementButton.setAttribute("id", "js-btn-removePlayers");
-   elementButton.setAttribute("btn-state", "is-disabled");
+   //elementButton.setAttribute("btn-state", "is-disabled");
    elementButton.setAttribute("class", "bc-players__btn-actions bc-players__actions--delete");
 
    //Add elements to grid

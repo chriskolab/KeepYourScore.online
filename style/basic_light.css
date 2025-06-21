@@ -79,6 +79,7 @@ button[btn-state="is-disabled"] {
   background-color: var(--base-color-6);
   border: 2px solid black;
   transition: background-color .3s ease,color .3s ease;
+  cursor: pointer;
   font-family: "Comic Sans MS", sans-serif;
 }
 
@@ -132,14 +133,21 @@ button[btn-state="is-disabled"] {
   background: url("../static/image_placeholder.svg");
   background-size: cover;
   background-repeat: no-repeat;
+  cursor: pointer;
   border: 1px dotted black;
 }
 
 .btn--standard:hover {
-  
+  background-color: var(--base-color-2);
 }
 
-.bc-nav__btn-lang:hover, .fc-cards__btn-follow:hover, .bc-players__btn-actions:hover, .bc-tutorial__btn-check-settings:hover {
+.bc-tutorial__btn-check-settings:hover {
+  background-color: var(--base-color-5);
+  opacity: 0.6;
+}
+
+.bc-nav__btn-lang:hover, .fc-cards__btn-follow:hover, .bc-players__btn-actions:hover {
+  background-color: none;
   opacity: 0.6;
 }
 
@@ -162,6 +170,7 @@ button[btn-state="is-disabled"] {
   background-color: var(--base-color-6);
   border: 2px solid black;
   font-family: "Comic Sans MS", sans-serif;
+  appearance: textfield;
   -moz-appearance: textfield; /*Remove arrows/spinners from input type number in Firefox*/
 }
 
