@@ -43,7 +43,7 @@ function onPageLoad() {
    try {
       var btnNewGame = document.getElementById("js-btn-newGame");
       btnNewGame.addEventListener("click", function() {
-         window.location = "./gamecond";
+         window.location = "./settings";
       });
       //console.log("New Game Button da!")
    } catch(err) {
@@ -244,7 +244,7 @@ function loadDict() {
                      There you can see the final standing, the points of each player (and also the games statistic - soon).\
                      If your game mates are mortified enough, you can end the session or start a rematch.",
          "card-details__headline": "<i>KeepYourScore online</i>",
-         "card-details__content": "by ChrisKolab<br><br>v0.0.7<br>18th August 2023<br><br>",
+         "card-details__content": "by ChrisKolab<br><br>v0.0.7<br>22nd June 2025<br><br>",
          "card-about__headline": "About",
          "card-about__content": "<b><i>KeepYourScore online</i></b> is a small web application to track your game scores.\
                If you are tired of trying to find a pen or pencil and a piece of paper, this is the right place for you.\
@@ -253,7 +253,7 @@ function loadDict() {
                If you find any bugs, have any suggestions or just want to say <i>Hi</i>, please send me feedback.\
                <br><u><i>Get in touch - soon</i></u>",
          "card-news__headline": "News",
-         "card-news__content": "<b>18th August 2023</b><br>Version v0.0.7 is out now.\
+         "card-news__content": "<b>22nd June 2025</b><br>Version v0.0.7 is out now.\
                This version contains all background calculations to play a full game in any game mode with a following result table.\
                <br><br>The next updates will add describing content and design elements only. First full release is going to be version v0.1.0.\
                <br><br><u><i>See full changelog - soon</i></u>",
