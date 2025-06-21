@@ -22,7 +22,7 @@
 					<button class="btn--standard bc-nav__btn-theme btn--shape1" i18n-id="nav-theme__button" btn-state="is-disabled"></button>
 				</div>
 				<div class="bc-nav__burger">
-					_
+					<button class="bc-nav__btn-burger" btn-state="is-disabled">&equiv;</button>
 				</div>
 				<div class="bc-nav__language">
 					<button class="bc-nav__btn-lang bc-nav__lang--de" btn-state="is-disabled"></button>
@@ -84,14 +84,55 @@
 			</div>
 			<div class="u-height--80px"></div>
 			<div class="bc-buttons--2col">
-				<button class="btn--standard bc-buttons__btn-leaderboard btn--shape1" id="js-btn-statistics" i18n-id="statistics__button" btn-state="is-disabled"></button>
-				<button class="btn--standard bc-buttons__btn-statistics btn--shape1" id="js-btn-rematch" i18n-id="rematch__button" btn-state="is-disabled"></button>
+				<button class="btn--standard bc-buttons__btn-statistics btn--shape1" id="js-btn-statistics" i18n-id="statistics__button" btn-state="is-disabled"></button>
+				<button class="btn--standard bc-buttons__btn-rematch btn--shape1" id="js-btn-rematch" i18n-id="rematch__button" btn-state="is-disabled"></button>
 			</div>
 			<div class="bc-buttons--2col">
-				<button class="btn--standard bc-buttons__btn-rematch btn--shape1" id="js-btn-mainMenu" i18n-id="main-menu__button" btn-state="is-disabled"></button>
+				<button class="btn--standard bc-buttons__btn-main-menu btn--shape1" id="js-btn-mainMenu" i18n-id="main-menu__button" btn-state="is-disabled"></button>
 				<button class="btn--standard bc-buttons__btn-main-menu btn--shape1" btn-state="is-disabled"></button>
 			</div>
 			<div class="u-height--40px"></div>
+		</div>
+	</div>
+
+	<div class="container-modal">
+		<div class="mc-card" id="js-div-modalContainer">
+			<!--
+			https://www.w3schools.com/howto/howto_css_modals.asp
+			https://www.cssscript.com/simple-responsive-css-modal-dialog/
+			https://bulma.io/documentation/components/modal/
+			https://www.codingnepalweb.com/custom-modal-box-using-javascript/
+			-->
+			<div class="mc-card__card-small" id="js-div-modalSmall">
+				<div class="mc-card-small__body" id="js-div-modalSmallContent" i18n-id="modal-small__content"></div>
+				<!--<span class="mc-card-small__body" id="js-div-modalSmallContent" i18n-id="modal-small__content"></span>-->
+				<button class="mc-card-small__btn-close-modal" id="js-btn-closeModalSmall">&#10008;</button>
+			</div>
+			<div class="mc-card__card-medium" id="js-div-modalMedium">
+				<div class="mc-card-medium__header">
+					<div class="mc-card-medium__title">Title</div>
+					<button class="mc-card-medium__btn-close-modal" id="js-btn-closeModalMedium">&#10008;</button>
+				</div>
+				<hr class="hr-like">
+				<div class="mc-card-medium__body">Content</div>
+				<hr class="hr-like">
+				<div class="mc-card-medium__footer">
+					<button class="mc-buttons__btn-confirm">OK</button>
+				</div>
+			</div>
+			<div class="mc-card__card-large" id="js-div-modalLarge">
+				<div class="mc-card-large__header">
+					<div class="mc-card-large__title"></div>
+					<button class="mc-card-large__btn-close-modal" id="js-btn-closeModalLarge">&#10008;</button>
+					<img class="mc-card-large__icon">
+				</div>
+				<hr class="hr-like">
+				<div class="mc-card-large__body"></div>
+				<hr class="hr-like">
+				<div class="mc-card-large__footer">
+					<button class="mc-buttons__btn-confirm"></button>
+				</div>
+			</div>
 		</div>
 	</div>
 

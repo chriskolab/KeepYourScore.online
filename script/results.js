@@ -3,15 +3,11 @@
 function calcFinalStanding() {
 
    //Get web storage data
-   /*
    var strGamestatMode = localStorage.getItem("KeepYourScore?gamestat-mode");
-   var strGamestatRound = localStorage.getItem("KeepYourScore?gamestat-gameround");
-   var strGamestatEndpoints = localStorage.getItem("KeepYourScore?gamestat-endpoints");
-   var strGamestatNumPlayer = localStorage.getItem("KeepYourScore?gamestat-numplayer");
-   var strGamestatCurrPlayer = localStorage.getItem("KeepYourScore?gamestat-currplayer");
    var strPlayerstatNames = localStorage.getItem("KeepYourScore?playerstat-names");
    var strPlayerstatPoints = localStorage.getItem("KeepYourScore?playerstat-points");
-   var strPlayerstatRounds = localStorage.getItem("KeepYourScore?playerstat-rounds");*/
+   var strPlayerstatRounds = localStorage.getItem("KeepYourScore?playerstat-rounds");
+   /*
    var strGamestatMode = "1112";
    var strGamestatRound = "1";
    var strGamestatEndpoints = "10000";
@@ -20,6 +16,7 @@ function calcFinalStanding() {
    var strPlayerstatNames = "Lisi,Chrisi,Sarah,Fabi,Vale,Isi";
    var strPlayerstatPoints = "14,10,10,6,6,4";
    var strPlayerstatRounds = "13,10,10,13,9,15";
+   */
 
    //Get IDs
    var divPodestFirst = document.getElementById("js-div-podestFirst");
@@ -109,8 +106,6 @@ function calcFinalStanding() {
 
    grouped.forEach(group => {
       const tr = document.createElement("tr");
-      const pointsVal = group.players[0].points;
-      const roundsVal = group.players[0].rounds;
 
       // Rank cell
       const tdRank = document.createElement("td");
@@ -198,144 +193,6 @@ function calcFinalStanding() {
    if (divPodestThird.innerHTML === "undefined") {
       divPodestThird.innerHTML = "-";
    }
-
-
-
-
-
-/*
-   //Input conversions
-   var numGamestatNumPlayer = Number(strGamestatNumPlayer);
-   const arrPlayerstatNames = strPlayerstatNames.split(",");                        //Array of strings
-   const arrPlayerstatPoints = strPlayerstatPoints.split(",").map(Number);          //Array of numbers
-   const setPlayerstatPoints = new Set(arrPlayerstatPoints);                        //Set of unique numbers
-   const arrPlayerstatPointsUnique = Array.from(setPlayerstatPoints);               //Array of unique numbers
-   const arrPlayerstatRounds = strPlayerstatRounds.split(",").map(Number);          //Array of numbers
-   const setPlayerstatRounds = new Set(arrPlayerstatRounds);                        //Set of unique numbers
-   const arrPlayerstatRoundsUnique = Array.from(setPlayerstatRounds);               //Array of unique numbers
-
-   //Declare variables
-   const arrResRanks = [];
-   const arrResPlayers = [];
-   const arrResPoints = [];
-   const arrResRounds = [];
-
-   var arrIdxPoints = [];
-   var arrIdxRounds = [];
-   var arrSortedPlayer = [];
-   var arrSortedValues = [];
-
-   //Get sorted indeces from player points
-   arrIdxPoints = arrPlayerstatPointsUnique.map(function(e,i){return {ind: i, val: e}});          //Create array with indices and values
-   arrIdxPoints.sort(function(x, y){return x.val > y.val ? 1 : x.val == y.val ? 0 : -1});         //Sort index/value couples, based on values
-   
-   //Get sorted indeces from player rounds
-   arrIdxRounds = arrPlayerstatRoundsUnique.map(function(e,i){return {ind: i, val: e}});          //Create array with indices and values
-   arrIdxRounds.sort(function(x, y){return x.val > y.val ? 1 : x.val == y.val ? 0 : -1});         //Sort index/value couples, based on values
-
-   //Make list keeping only indices and reverse order depending on game mode
-   switch(strGamestatMode) {
-   case "1111": case "1211":
-      var indices = arrIdxPoints.map(function(e){return e.ind}).reverse();
-
-      //Fill array for player points
-      for (var i = 0; i < setPlayerstatPoints.size; i++) {
-         arrResPoints[i] = arrPlayerstatPointsUnique[indices[i]];
-      }
-
-      arrSortedValues = arrResPoints;
-      arrSortedPlayer = arrPlayerstatPoints;
-      break;
-
-   case "1121": case "1221":
-      var indices = arrIdxPoints.map(function(e){return e.ind});
-
-      //Fill array for player points
-      for (var i = 0; i < setPlayerstatPoints.size; i++) {
-         arrResPoints[i] = arrPlayerstatPointsUnique[indices[i]];
-      }
-
-      arrSortedValues = arrResPoints;
-      arrSortedPlayer = arrPlayerstatPoints;
-      break;
-
-   case "1112": case "1122": case "1212": case "1222":
-      var indices = arrIdxRounds.map(function(e){return e.ind});
-
-      //Fill array for player points
-      for (var i = 0; i < setPlayerstatRounds.size; i++) {
-         arrResRounds[i] = arrPlayerstatRoundsUnique[indices[i]];
-      }
-
-      arrSortedValues = arrResRounds;
-      arrSortedPlayer = arrPlayerstatRounds;
-      break;
-      
-   }
-
-   //Fill array for player names
-   for (var i = 0; i < arrPlayerstatNames.length; i++) {
-
-      for (var j = 0; j < arrSortedValues.length; j++) {
-
-         var numPlayerTemp = arrSortedPlayer[i];
-         var numSortedTemp = arrSortedValues[j];
-
-         if (numPlayerTemp == numSortedTemp) {
-            arrResPlayers[j] += arrPlayerstatNames[i] + "<br>";
-
-            //Get player points when sorting by player rounds
-            switch(strGamestatMode) {
-            case "1112": case "1122": case "1212": case "1222":
-               arrResPoints[j] += arrPlayerstatPoints[i] + "<br>";
-               break;
-            }
-            
-         }
-
-      }
-
-   }
-
-   //Remove string "undefinded" in every array elements name and points
-   for (var i = 0; i < arrResPlayers.length; i++) {
-      arrResPlayers[i] = arrResPlayers[i].substring(9);
-
-      switch(strGamestatMode) {
-      case "1112": case "1122": case "1212": case "1222":
-         arrResPoints[i] = arrResPoints[i].substring(9);
-         break;
-      }
-
-   }
-
-   //Fill array for ranks
-   switch(strGamestatMode) {
-   case "1111": case "1121": case "1211": case "1221":
-      for (var i = 0; i < setPlayerstatPoints.size; i++) {
-         arrResRanks[i] = i+1 + ".";
-      }
-      break;
-
-   case "1112": case "1122": case "1212": case "1222":
-      for (var i = 0; i < setPlayerstatRounds.size; i++) {
-         arrResRanks[i] = i+1 + ".";
-      }
-      break;
-   }
-
-   
-
-   console.log(arrPlayerstatNames)
-   console.log(arrPlayerstatPoints)
-   console.log(arrPlayerstatRounds)
-   console.log("---")
-   console.log(arrResRanks)
-   console.log(arrResPlayers)
-   console.log(arrResPoints)
-   console.log(arrResRounds)
-
-   */
 
 }
 
