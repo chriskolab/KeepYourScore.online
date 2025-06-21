@@ -23,7 +23,7 @@
 					<button class="btn--standard bc-nav__btn-theme btn--shape1" i18n-id="nav-theme__button" btn-state="is-disabled"></button>
 				</div>
 				<div class="bc-nav__burger">
-					_
+					<button class="bc-nav__btn-burger" btn-state="is-disabled">&equiv;</button>
 				</div>
 				<div class="bc-nav__language">
 					<button class="bc-nav__btn-lang bc-nav__lang--de" btn-state="is-disabled"></button>
@@ -45,12 +45,12 @@
 			</div>
 			<div class="u-height--80px"></div>
 			<div class="bc-buttons--2col">
-				<button class="btn--standard bc-buttons__btn-leaderboard btn--shape1" btn-state="is-disabled" onclick="checkCurrentPlayer()"></button>
-				<button class="btn--standard bc-buttons__btn-next-player btn--shape1" btn-state="is-disabled" onclick="calcNewPlayerValues()"></button>
+				<button class="btn--standard bc-buttons__btn-statistics btn--shape1" id="js-btn-statistics" i18n-id="statistics__button" btn-state="is-disabled"></button>
+				<button class="btn--standard bc-buttons__btn-next-player btn--shape1" id="js-btn-nextPlayer" i18n-id="next-player__button" btn-state="is-disabled"></button>
 			</div>
 			<div class="bc-buttons--2col">
-				<button class="btn--standard bc-buttons__btn-quit-game btn--shape1" btn-state="is-disabled" onclick="loadingScreen()"></button>
-				<button class="btn--standard bc-buttons__btn-end-game btn--shape1" btn-state="is-disabled"></button>
+				<button class="btn--standard bc-buttons__btn-main-menu btn--shape1" id="js-btn-mainMenu" i18n-id="main-menu__button" btn-state="is-disabled"></button>
+				<button class="btn--standard bc-buttons__btn-end-game btn--shape1" id="js-btn-endGame" i18n-id="end-game__button"" btn-state="is-disabled"></button>
 			</div>
 			<div class="u-height--40px"></div>
 		</div>

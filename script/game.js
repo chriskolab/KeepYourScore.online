@@ -1,18 +1,18 @@
 
 //Compare current player points with points to win
 function checkCurrentPlayer() {
-   console.log("checkCurrentPlayer")
 
    //Get web storage data
-   /*
    var strGamestatMode = localStorage.getItem("KeepYourScore?gamestat-mode");
    var strGamestatEndpoints = localStorage.getItem("KeepYourScore?gamestat-endpoints");
    var strGamestatCurrPlayer = localStorage.getItem("KeepYourScore?gamestat-currplayer");
-   var strPlayerstatPoints = localStorage.getItem("KeepYourScore?playerstat-points");*/
+   var strPlayerstatPoints = localStorage.getItem("KeepYourScore?playerstat-points");
+   /*
    var strGamestatMode = "1112";
    var strGamestatEndpoints = "10000";
    var strGamestatCurrPlayer = "1";
    var strPlayerstatPoints = "14,10,10,6,6,4";
+   */
 
    //Input conversions
    var numGamestatEndpoints = Number(strGamestatEndpoints);
@@ -48,20 +48,20 @@ function checkCurrentPlayer() {
 
 //Get next player in game cycle or end game
 function getNextPlayer() {
-   console.log("getNextPlayer")
 
    //Get web storage data
-   /*
    var strGamestatMode = localStorage.getItem("KeepYourScore?gamestat-mode");
    var strGamestatRound = localStorage.getItem("KeepYourScore?gamestat-gameround");
    var strGamestatNumPlayer = localStorage.getItem("KeepYourScore?gamestat-numplayer");
    var strGamestatCurrPlayer = localStorage.getItem("KeepYourScore?gamestat-currplayer");
-   var strPlayerstatPoints = localStorage.getItem("KeepYourScore?playerstat-points");*/
+   var strPlayerstatPoints = localStorage.getItem("KeepYourScore?playerstat-points");
+   /*
    var strGamestatMode = "1112";
    var strGamestatRound = "1";
    var strGamestatNumPlayer = "6";
    var strGamestatCurrPlayer = "1";
    var strPlayerstatPoints = "14,10,10,6,6,4";
+   */
 
    //Input conversions
    var numGamestatRound = Number(strGamestatRound);
@@ -85,7 +85,7 @@ function getNextPlayer() {
          //Check player points - one player reaches final points
          if (arrPlayerstatPoints.some(checkPoints)) {
             localStorage.setItem("KeepYourScore?gamestat-status", "2");
-            //window.location = "./results";
+            window.location = "./results";
             return;
          }
          break;
@@ -95,7 +95,7 @@ function getNextPlayer() {
          //Check player points - every player reaches final points
          if (arrPlayerstatPoints.every(checkPoints)) {
             localStorage.setItem("KeepYourScore?gamestat-status", "2");
-            //window.location = "./results";
+            window.location = "./results";
             return;
          }
          break;
@@ -117,14 +117,14 @@ function getNextPlayer() {
 
 
 function checkPoints(points) {
-   console.log("checkPoints")
 
    //Get web storage data
-   /*
    var strGamestatMode = localStorage.getItem("KeepYourScore?gamestat-mode");
-   var strGamestatEndpoints = localStorage.getItem("KeepYourScore?gamestat-endpoints");*/
+   var strGamestatEndpoints = localStorage.getItem("KeepYourScore?gamestat-endpoints");
+   /*
    var strGamestatMode = "1112";
    var strGamestatEndpoints = "10000";
+   */
 
    //Input conversions
    var numGamestatEndpoints = Number(strGamestatEndpoints);
@@ -146,22 +146,22 @@ function checkPoints(points) {
 
 //Display the player that plays the next round
 function displayCurrentPlayer() {
-   console.log("displayCurrentPlayer")
 
    //Get web storage data
-   /*
    var strGamestatMode = localStorage.getItem("KeepYourScore?gamestat-mode");
    var strGamestatRound = localStorage.getItem("KeepYourScore?gamestat-gameround");
    var strGamestatNumPlayer = localStorage.getItem("KeepYourScore?gamestat-numplayer");
    var strGamestatCurrPlayer = localStorage.getItem("KeepYourScore?gamestat-currplayer");
    var strPlayerstatNames = localStorage.getItem("KeepYourScore?playerstat-names");
-   var strPlayerstatPoints = localStorage.getItem("KeepYourScore?playerstat-points");*/
+   var strPlayerstatPoints = localStorage.getItem("KeepYourScore?playerstat-points");
+   /*
    var strGamestatMode = "1112";
    var strGamestatRound = "1";
    var strGamestatNumPlayer = "6";
    var strGamestatCurrPlayer = "1";
    var strPlayerstatNames = "Lisi,Chrisi,Sarah,Fabi,Vale,Isi";
    var strPlayerstatPoints = "14,10,10,6,6,4";
+   */
 
    //Get IDs
    var divPlayerstatsName = document.getElementById("js-div-playerstatsName");
@@ -216,18 +216,18 @@ function displayCurrentPlayer() {
 
 //Calculate the new values of the current player after user input
 function calcNewPlayerValues() {
-   console.log("calcNewPlayerValues")
 
    //Get web storage data
-   /*
    var strGamestatMode = localStorage.getItem("KeepYourScore?gamestat-mode");
    var strGamestatCurrPlayer = localStorage.getItem("KeepYourScore?gamestat-currplayer");
    var strPlayerstatPoints = localStorage.getItem("KeepYourScore?playerstat-points");
-   var strPlayerstatRounds = localStorage.getItem("KeepYourScore?playerstat-rounds");*/
+   var strPlayerstatRounds = localStorage.getItem("KeepYourScore?playerstat-rounds");
+   /*
    var strGamestatMode = "1112";
    var strGamestatCurrPlayer = "1";
    var strPlayerstatPoints = "14,10,10,6,6,4";
    var strPlayerstatRounds = "13,10,10,13,9,15";
+   */
 
    //Get IDs
    var divModalContainer = document.getElementById("js-div-modalContainer");
@@ -323,7 +323,6 @@ function calcNewPlayerValues() {
 
 //Blurry loading screen between two players
 function loadingScreen() {
-   console.log("loadingScreen")
 
    //Get IDs
    var divPlayerstatsName = document.getElementById("js-div-playerstatsName");
