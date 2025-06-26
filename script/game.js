@@ -268,27 +268,20 @@ function calcNewPlayerValues() {
    var check = true;
    var infoText = "";
 
-   //Error text for incorrect entries
-   switch (divLangSettings.innerHTML) {
-   case "en": 
-      infoText += "<b>Wrong user input.</b> Please recheck following criteria:<br>"
-      break;
-   case "de":
-      infoText += "<b>Fehlerhafte Eingabe.</b> Bitte überprüfe folgende Kriterien:<br>"
-      break;
-   }
-
    //Check input
-   if (!numNewPlayerPoints) {
+   if (isNaN(numNewPlayerPoints)) {
 
       check = false;
 
+      //Error text for incorrect entries
       switch (divLangSettings.innerHTML) {
-      case "en": 
+      case "en":
+         infoText += "<b>Wrong user input.</b> Please recheck following criteria:<br>"
          infoText += "<b>&#10137;</b> Entered points are not a number.<br>";
          infoText += "<b>&#10137;</b> Decimals are separated by a point (e.g. 3.41).<br>";
          break;
       case "de":
+         infoText += "<b>Fehlerhafte Eingabe.</b> Bitte überprüfe folgende Kriterien:<br>"
          infoText += "<b>&#10137;</b> Eingegebene Punkte sind keine Zahl.<br>";
          infoText += "<b>&#10137;</b> Dezimalstellen werden durch einen Punkt getrennt (z.B. 3.41).<br>";
          break;
@@ -329,12 +322,14 @@ function loadingScreen() {
    var divPlayerstatsGameround = document.getElementById("js-div-playerstatsGameround");
    var divPlayerstatsPlayer = document.getElementById("js-div-playerstatsPlayer");
    var divPlayerstatsPoints = document.getElementById("js-div-playerstatsPoints");
+   var divInputCalcValue = document.getElementById("js-input-calcValue");
 
    //Add blurry style
    divPlayerstatsName.classList.add("ct--blurry");
    divPlayerstatsGameround.classList.add("ct--blurry");
    divPlayerstatsPlayer.classList.add("ct--blurry");
    divPlayerstatsPoints.classList.add("ct--blurry");
+   divInputCalcValue.classList.add("ct--blurry");
 
    //Remove blurry style after random timeout and continue with next player
    setTimeout(function() {
@@ -342,6 +337,8 @@ function loadingScreen() {
       divPlayerstatsGameround.classList.remove("ct--blurry");
       divPlayerstatsPlayer.classList.remove("ct--blurry");
       divPlayerstatsPoints.classList.remove("ct--blurry");
+      divInputCalcValue.classList.remove("ct--blurry");
+      divInputCalcValue.value = "";
 
       getNextPlayer();
 

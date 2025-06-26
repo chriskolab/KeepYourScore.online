@@ -101,7 +101,7 @@ function onPageLoad() {
    //Next Player
    try {
       var btnNextPlayer = document.getElementById("js-btn-nextPlayer");
-      btnNextPlayer.addEventListener("click", calcNewPlayerValues);
+      btnNextPlayer.addEventListener("click", displayCurrentPlayer);
       //console.log("Next Player Button da!")
    } catch(err) {
       //console.log("X - Kein Next Player Button!")
