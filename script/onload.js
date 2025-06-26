@@ -101,7 +101,7 @@ function onPageLoad() {
    //Next Player
    try {
       var btnNextPlayer = document.getElementById("js-btn-nextPlayer");
-      btnNextPlayer.addEventListener("click", displayCurrentPlayer);
+      btnNextPlayer.addEventListener("click", calcNewPlayerValues);
       //console.log("Next Player Button da!")
    } catch(err) {
       //console.log("X - Kein Next Player Button!")
@@ -139,8 +139,17 @@ function onPageLoad() {
    } catch(err) {
       console.log("X - Kein Rematch Button!")
    }
-      */
+   */
 
+   //Display first player when gamestatus condition fulfilled
+   var gameStatus = localStorage.getItem("KeepYourScore?gamestat-status");
+
+   if (gameStatus == "1") {
+      displayCurrentPlayer();
+      //console.log("Auf Game Seite")
+   } else {
+      //console.log("X - Nicht auf Game Seite")
+   }
 
    //Run results script when gamestatus condition fulfilled
    var gameStatus = localStorage.getItem("KeepYourScore?gamestat-status");
